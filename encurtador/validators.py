@@ -24,6 +24,12 @@ def validar_url(valor):
 
 
 def validar_ponto_com(valor):
-    if ".com" not in valor:
+    erro = True
+    if ".com" in valor:
+        erro = False
+    elif ".edu" in valor:
+        erro = False
+    
+    if erro:
         raise ValidationError("Entrada inválida porque não há .com")
     return valor
